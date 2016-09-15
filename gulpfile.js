@@ -23,7 +23,7 @@ gulp.task('scripts', function() {
 		})
 		.pipe(source('app.js'))
 		.pipe(buffer())
-		.pipe(uglify())
+		.pipe(uglify()) // aka minify basically
 		.pipe(gulp.dest('./dist/client/assets/scripts'))
 		.pipe(browserSync.reload({ stream: true }));
 });
@@ -70,4 +70,6 @@ gulp.task('browser-sync', function() {
  */
 gulp.task('default', ['scripts', 'static', 'views', 'browser-sync'], function() {
 	gulp.watch('./src/client/**/*.js', ['scripts']);
+	gulp.watch('./src/client/index.html', ['static']);
+	gulp.watch('./src/client/views/**/*.html', ['views']);
 });

@@ -3,8 +3,21 @@
  * - this will tie in all of the other files.
  *
  */
+
+/**
+ * Requirements
+ * - this would not work without these!
+ *
+ */
 require('../../node_modules/angular/angular.js');
 require('../../node_modules/angular-ui-router/release/angular-ui-router.js');
+
+/**
+ * Imports
+ * - tie our application together.
+ *
+ */
+require('./controllers/search');
 
 /**
  * Function to handle configuration of application.
@@ -37,7 +50,8 @@ function config($stateProvider, $urlRouterProvider) {
  */
 angular
 	.module('angular-sc', [
-		'ui.router'
+		'ui.router',
+		'Search'
 	])
 	.config([
 		'$stateProvider',
